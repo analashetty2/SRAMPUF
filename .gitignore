@@ -1,0 +1,41 @@
+# Vivado generated files
+vivado_project/
+*.jou
+*.log
+*.str
+*.zip
+*.xpr.bak
+.Xil/
+*.pb
+*.wdb
+
+# Simulation files
+*.vcd
+*.saif
+xsim.dir/
+webtalk/
+webtalk.jou
+webtalk.log
+
+# Synthesis files
+*.dcp
+*.bit
+*.ltx
+*.rpt
+*.xml
+*.html
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Temporary files
+*.tmp
+*.bak
+run_sim.tcl
+run_sim_now.tcl
+
+# Kiro IDE files (optional - remove if you want to include)
+.kiro/

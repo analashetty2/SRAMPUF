@@ -1,0 +1,93 @@
+========================================
+SRAM-PUF - STEP BY STEP INSTRUCTIONS
+========================================
+
+YOUR VIVADO IS ALREADY OPEN!
+Just follow these steps in the Tcl Console:
+
+========================================
+STEP 1: Navigate to Project Directory
+========================================
+
+In the Tcl Console (bottom of Vivado), type:
+
+cd "D:/FINAL YEAR PROJECT/sram_puf"
+
+Press ENTER
+
+You should see: D:/FINAL YEAR PROJECT/sram_puf
+
+========================================
+STEP 2: Create the Project
+========================================
+
+Type:
+
+source vivado/create_project.tcl
+
+Press ENTER
+
+Wait 30-60 seconds. You'll see:
+"Project created successfully!"
+
+========================================
+STEP 3: Launch Simulation
+========================================
+
+Type:
+
+launch_simulation
+
+Press ENTER
+
+Wait 1-2 minutes for simulation window to open.
+
+========================================
+STEP 4: Run Simulation
+========================================
+
+In the simulation window Tcl Console, type:
+
+run all
+
+Press ENTER
+
+========================================
+STEP 5: Check Results
+========================================
+
+Look for these messages:
+
+[PASS] Enrollment completed successfully
+[PASS] Reconstruction completed successfully
+[PASS] Keys match! PUF system working correctly.
+
+========================================
+THAT'S IT! YOU'RE DONE!
+========================================
+
+If you see [PASS] messages, your SRAM-PUF is working!
+
+========================================
+TROUBLESHOOTING
+========================================
+
+Problem: "can't read file"
+Solution: Make sure you typed the cd command correctly with quotes
+
+Problem: "no such file"
+Solution: Check that you're in D:/FINAL YEAR PROJECT/sram_puf
+
+Problem: Simulation doesn't start
+Solution: Close Vivado, reopen, try again
+
+========================================
+QUICK REFERENCE - ALL 4 COMMANDS
+========================================
+
+cd "D:/FINAL YEAR PROJECT/sram_puf"
+source vivado/create_project.tcl
+launch_simulation
+run all
+
+========================================

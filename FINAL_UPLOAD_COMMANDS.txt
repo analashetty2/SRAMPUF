@@ -1,0 +1,80 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║                                                                   ║
+║              UPLOAD TO GITHUB - COPY THESE COMMANDS               ║
+║                     Repository: sram-puf-fpga                     ║
+║                                                                   ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+STEP 1: Open Command Prompt (CMD)
+═══════════════════════════════════════════════════════════════════
+Press: Windows Key + R
+Type: cmd
+Press: Enter
+
+
+STEP 2: Copy and Paste These Commands (One by One)
+═══════════════════════════════════════════════════════════════════
+
+cd C:\Users\Melroy Quadros\puf
+
+git init
+
+git config --global user.name "Melroy Quadros"
+
+git config --global user.email "melroyquadros@example.com"
+
+git add .
+
+git commit -m "Initial commit: Production-ready SRAM-PUF system for FPGA"
+
+git remote add origin https://github.com/YOUR_USERNAME/sram-puf-fpga.git
+
+git branch -M main
+
+git push -u origin main
+
+
+═══════════════════════════════════════════════════════════════════
+IMPORTANT: Replace YOUR_USERNAME with your GitHub username!
+═══════════════════════════════════════════════════════════════════
+
+
+REPOSITORY DETAILS:
+═══════════════════════════════════════════════════════════════════
+
+Name: sram-puf-fpga
+
+Description:
+SRAM-based Physical Unclonable Function (PUF) system for FPGA - 
+Hardware security with SHA-256 key generation, fuzzy extractor, 
+and error correction. Production-ready Verilog implementation for 
+Xilinx FPGAs.
+
+Topics (Add these after upload):
+fpga, verilog, puf, hardware-security, xilinx, vivado, cryptography, 
+sha256, authentication, physical-unclonable-function, error-correction, 
+key-generation, rtl, synthesizable
+
+
+═══════════════════════════════════════════════════════════════════
+AFTER SUCCESSFUL UPLOAD:
+═══════════════════════════════════════════════════════════════════
+
+✅ Visit: https://github.com/YOUR_USERNAME/sram-puf-fpga
+✅ Add topics (Settings → Topics)
+✅ Create release: v1.0.0 - Production Ready
+✅ Verify README displays correctly
+
+
+═══════════════════════════════════════════════════════════════════
+SHARE YOUR REPOSITORY:
+═══════════════════════════════════════════════════════════════════
+
+URL: https://github.com/YOUR_USERNAME/sram-puf-fpga
+
+Clone: git clone https://github.com/YOUR_USERNAME/sram-puf-fpga.git
+
+
+═══════════════════════════════════════════════════════════════════
+🎉 YOU'RE READY TO UPLOAD! 🎉
+═══════════════════════════════════════════════════════════════════

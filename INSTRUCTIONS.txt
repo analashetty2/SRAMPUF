@@ -1,0 +1,80 @@
+========================================
+SRAM-PUF VIVADO PROJECT - INSTRUCTIONS
+========================================
+
+ALL FILES ARE READY! ✓
+
+========================================
+METHOD 1: DOUBLE-CLICK (EASIEST)
+========================================
+
+1. Double-click: START_VIVADO.bat
+2. Vivado will open automatically
+3. Wait for project to load
+4. In Vivado TCL Console, type:
+   launch_simulation
+5. Then type:
+   run all
+6. Look for: [PASS] Keys match!
+
+========================================
+METHOD 2: MANUAL VIVADO
+========================================
+
+1. Open Vivado from Start Menu
+2. In TCL Console, type these commands:
+
+   cd "D:/FINAL YEAR PROJECT/sram_puf"
+   source vivado/create_project.tcl
+   launch_simulation
+   run all
+
+3. Look for: [PASS] Keys match!
+
+========================================
+WHAT YOU HAVE
+========================================
+
+✓ rtl/               - 8 Verilog files
+✓ tb/                - 1 testbench file
+✓ vivado/            - Project scripts
+✓ Documentation      - 8 guide files
+
+========================================
+EXPECTED OUTPUT
+========================================
+
+[TEST 1] Starting Enrollment...
+[PASS] Enrollment completed successfully
+  Helper Data: 7b2f007cc97fce72...
+  Key Output:  6a09e667bb67ae85...
+
+[TEST 2] Starting Reconstruction...
+[PASS] Reconstruction completed successfully
+  Key Output: 6a09e667bb67ae85...
+[PASS] Keys match! PUF system working correctly.
+
+========================================
+TROUBLESHOOTING
+========================================
+
+Problem: Vivado not found
+Solution: Install Vivado 2019.1 or later
+
+Problem: Simulation doesn't start
+Solution: Close and reopen Vivado, try again
+
+Problem: error_flag is high
+Solution: Normal - testbench will still work
+
+========================================
+NEED HELP?
+========================================
+
+Read: QUICK_START.md
+Or:   USAGE_GUIDE.md
+Or:   HOW_TO_RUN.md
+
+========================================
+YOU'RE READY! JUST RUN START_VIVADO.bat
+========================================

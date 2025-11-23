@@ -1,0 +1,60 @@
+=================================================================
+QUICK GITHUB UPLOAD COMMANDS
+=================================================================
+
+STEP 1: Navigate to project directory
+--------------------------------------
+cd C:\Users\Melroy Quadros\puf
+
+
+STEP 2: Initialize Git
+--------------------------------------
+git init
+
+
+STEP 3: Configure Git (first time only)
+--------------------------------------
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+
+
+STEP 4: Add all files
+--------------------------------------
+git add .
+
+
+STEP 5: Create initial commit
+--------------------------------------
+git commit -m "Initial commit: Complete SRAM-PUF system implementation"
+
+
+STEP 6: Connect to GitHub (replace YOUR_USERNAME)
+--------------------------------------
+git remote add origin https://github.com/YOUR_USERNAME/sram-puf-system.git
+
+
+STEP 7: Push to GitHub
+--------------------------------------
+git branch -M main
+git push -u origin main
+
+
+=================================================================
+FUTURE UPDATES
+=================================================================
+
+git add .
+git commit -m "Description of changes"
+git push
+
+
+=================================================================
+CHECK STATUS
+=================================================================
+
+git status
+git log --oneline
+git remote -v
+
+
+=================================================================
