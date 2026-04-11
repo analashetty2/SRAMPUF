@@ -90,15 +90,20 @@ module fuzzy_extractor #(
             assign codec_error = ham_error;
         end
         else begin : bch_gen
-            // Use BCH codec
-            reg [6:0] bch_data_in;
-            reg [14:0] bch_code_in;
-            wire [14:0] bch_code_out;
-            wire [6:0] bch_data_out;
+            // Use BCH(31,16,3) codec
+            reg [15:0] bch_data_in;
+            reg [30:0] bch_code_in;
+            wire [30:0] bch_code_out;
+            wire [15:0] bch_data_out;
             wire bch_error;
             wire bch_done;
             
-            bch_codec bch_inst (
+            bch_codec #(
+                .M(5),
+                .T(3),
+                .N(31),
+                .K(16)
+            ) bch_inst (
                 .clk(clk),
                 .rst(rst),
                 .encode(codec_encode),

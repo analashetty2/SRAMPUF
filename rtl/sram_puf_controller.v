@@ -61,6 +61,15 @@ module sram_puf_controller #(
     wire keygen_done;
     wire [255:0] keygen_key;
     
+    // LFSR signals
+    reg [N-1:0] lfsr_seed;
+    reg lfsr_load;
+    reg lfsr_enable;
+    wire [N-1:0] lfsr_out;
+    wire lfsr_bit;
+    reg [8:0] lfsr_cycle_count;  // Count LFSR shift cycles
+    reg [N-1:0] masked_puf;     // PUF response after LFSR masking
+    
     // Enrollment tracking
     reg [3:0] powerup_count;
     reg [3:0] stability_count [0:N-1];
@@ -112,6 +121,19 @@ module sram_puf_controller #(
         .done(fuzzy_done)
     );
     
+    // LFSR for PUF response masking
+    lfsr_256 #(
+        .WIDTH(N)
+    ) lfsr_inst (
+        .clk(clk),
+        .rst(rst),
+        .seed(lfsr_seed),
+        .load(lfsr_load),
+        .enable(lfsr_enable),
+        .lfsr_out(lfsr_out),
+        .lfsr_bit(lfsr_bit)
+    );
+    
     // Key Generator
     key_gen #(
         .SECRET_BITS(SECRET_BITS)
@@ -119,7 +141,7 @@ module sram_puf_controller #(
         .clk(clk),
         .rst(rst),
         .start(keygen_start),
-        .secret_in(latched_secret),  // Use latched secret instead of direct wire
+        .secret_in(latched_secret),
         .key_out(keygen_key),
         .done(keygen_done)
     );
@@ -137,10 +159,14 @@ module sram_puf_controller #(
             puf_read_enable <= 1'b0;
             fuzzy_start <= 1'b0;
             keygen_start <= 1'b0;
+            lfsr_load <= 1'b0;
+            lfsr_enable <= 1'b0;
+            lfsr_cycle_count <= 0;
             powerup_count <= 0;
             key_out <= 256'b0;
             helper_data_out <= {HELPER_BITS{1'b0}};
             latched_secret <= {SECRET_BITS{1'b0}};
+            masked_puf <= {N{1'b0}};
         end
         else begin
             case (state)
@@ -283,6 +309,26 @@ module sram_puf_controller #(
                     
                     if (puf_read_done) begin
                         puf_read_enable <= 1'b0;
+                        // Seed LFSR with XOR of PUF response and diversification constant
+                        lfsr_seed <= puf_response ^ {{(N-32){1'b0}}, 32'hDEADBEEF};
+                        lfsr_load <= 1'b1;
+                        lfsr_cycle_count <= 0;
+                        state <= `STATE_LFSR;
+                    end
+                end
+                
+                `STATE_LFSR: begin
+                    // Run LFSR for N cycles to generate masking sequence
+                    lfsr_load <= 1'b0;
+                    
+                    if (lfsr_cycle_count < N) begin
+                        lfsr_enable <= 1'b1;
+                        lfsr_cycle_count <= lfsr_cycle_count + 1;
+                    end
+                    else begin
+                        lfsr_enable <= 1'b0;
+                        // XOR LFSR output with PUF response for dispersion
+                        masked_puf <= puf_response ^ lfsr_out;
                         state <= `STATE_RECONSTRUCT_DECODE;
                     end
                 end

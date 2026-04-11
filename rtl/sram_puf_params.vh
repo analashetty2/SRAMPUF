@@ -22,11 +22,11 @@
 `define HAMMING_N               7
 `define HAMMING_K               4
 
-// BCH Default Parameters (31,21,2)
+// BCH Default Parameters (31,16,3)
 `define BCH_M                   5
-`define BCH_T                   2
+`define BCH_T                   3
 `define BCH_N                   31
-`define BCH_K                   21
+`define BCH_K                   16
 
 // SHA-256 Parameters
 `define SHA256_DIGEST_WIDTH     256
@@ -45,5 +45,6 @@
 `define STATE_KEYGEN            4'd9
 `define STATE_DONE              4'd10
 `define STATE_ERROR             4'd11
+`define STATE_LFSR              4'd12
 
 `endif // SRAM_PUF_PARAMS_VH
