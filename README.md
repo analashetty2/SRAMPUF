@@ -170,11 +170,7 @@ You should see version information.
 
 ### Phase 3: Creating the Project
 
-**Step 3.1: Clone Repository**
 
-```bash
-git clone https://github.com/Melroy-Sahyadri-ECE/sram-puf-fpga1.git
-cd sram-puf-fpga1
 ```
 
 **Step 3.2: Understand the Files**
