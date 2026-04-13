@@ -83,11 +83,7 @@ Before you begin, ensure you have:
 - ✅ **Windows** or **Linux** operating system
 - ✅ **Git** (for cloning the repository)
 
-### Step 1: Clone the Repository
 
-```bash
-git clone https://github.com/Melroy-Sahyadri-ECE/sram-puf-fpga1.git
-cd sram-puf-fpga1
 ```
 
 ### Step 2: Open Vivado Project
